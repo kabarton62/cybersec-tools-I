@@ -28,15 +28,17 @@ N/A
 
 ## Procedures:
 ### Challenge 1: Create a GCP account
-If you do not already have a Google account, create a Google account here. You can use your Jaguar email or any other email of your preference.
-Verify that you can log into GCP Console at https://console.cloud.google.com.
-Create a project. You may have a default project which you could use if that is your preference.
+1. If you do not already have a Google account, create a Google account here. You can use your Jaguar email or any other email of your preference.
+2. Verify that you can log into GCP Console at https://console.cloud.google.com.
+3. Create a project. You may have a default project which you could use if that is your preference.
 
 ### Challenge 2: Claim a GCP Education Grant coupon
-You will receive an email from the instructor to claim your GCP Education Grant coupon. Click on the provided link.
-The coupon will only be issued to your Jaguar email. You will receive an email from Google with a coupon code and a link to redeem the coupon for credit.
-Follow the link to https://console.cloud.google.com/education. At this point, you can change the account that the coupon is applied to. If your GCP account is tied to your Jaguar email, then you are set. If you account is tied to another email, follow the instructions on the page to change accounts for applying the credit.
-At this point you have credits, now change the billing for one or more projects. Select the **menu bars > Billing > Manage Billing Accounts**. You will see the coupon and a tab for MY PROJECTS. Select **MY PROJECTS**, and for each project you want to change billing for, select **Actions > Change billing**.
+1. You will receive an email from the instructor to claim your GCP Education Grant coupon. Click on the provided link.
+2. The coupon will only be issued to your Jaguar email. You will receive an email from Google with a coupon code and a link to redeem the coupon for credit.
+3. Follow the link to https://console.cloud.google.com/education. At this point, you can change the account that the coupon is applied to. If your GCP account is tied to your Jaguar email, then you are set. If you account is tied to another email, follow the instructions on the page to change accounts for applying the credit.
+4. At this point you have credits, now change the billing for one or more projects. 
+  - Select the **menu bars > Billing > Manage Billing Accounts**. 
+  - You will see the coupon and a tab for MY PROJECTS. Select **MY PROJECTS**, and for each project you want to change billing for, select **Actions > Change billing**.
 
 ### Challenge 3:  Create a GCP Compute Engine instance
 
