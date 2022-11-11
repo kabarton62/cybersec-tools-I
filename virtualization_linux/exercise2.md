@@ -95,5 +95,5 @@ example:
 ssh -i /home/kbarton/id_rsa kbarton@35.100.100.10
 ```
 
-Capture a screenshoot of the SSH connection with your SSH client.
+**Capture a screenshoot of the SSH connection with your SSH client.**
 
