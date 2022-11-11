@@ -46,8 +46,14 @@ N/A
 2. Click **Create Instance**.
   - Name your instance
   - Change the size to micro
-  - Select an OS of your choice (Ubuntu 20.04 LTS recommended). Pay attention to the OS you choose, some OS's are free, others are expensive.
+  - Change the **Boot disk**. 
+    - Select **Ubuntu 20.04 LTS**. 
   - Configure a static external IP address (preferred for OpenVPN server which will be installed later)
+    - Click Advanced options 
+    - select **Networking**
+    - Under Network Interfaces, click **default**
+    - Click the drop-down under **External IPv4 address**
+    - Click **Create IP address** and follow the prompt
   - You can customize other configurations if you like, or use the default settings. 
 
 ### Challenge 4: Generate and Secure a Public/Private Key Pair 
