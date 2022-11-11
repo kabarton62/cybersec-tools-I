@@ -78,7 +78,7 @@ Open the GCP console.
 
 In the GCP console open SSH in the Web interface by clicking the SSH button next to the external IP address.
 
-**Action: Capture a screenshot of your SSH connection.**
+**Capture a screenshot of your SSH connection.**
 
 ### Challenge 8:  Connect to GCP Compute Engine Instance with SSH using the GCP Console
 
@@ -95,4 +95,5 @@ example:
 ssh -i /home/kbarton/id_rsa kbarton@35.100.100.10
 ```
 
-**Action: Capture a screenshoot of the SSH connection with your SSH client. **
+**Capture a screenshoot of the SSH connection with your SSH client. **
+
