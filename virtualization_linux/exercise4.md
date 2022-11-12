@@ -87,3 +87,69 @@ Use a text editor, **nano**, to create and edit a new file. After reading the fi
 Directories are created with **mkdir**. Files and directories can be hidden by placing a period before the file or directory name. You will create visible and hidden directories in this section.
 
 ```
+user@host:~$ echo >> ~/lab1-results.txt
+user@host:~$ echo Create/Edit Files/Dir >> ~/lab1-results.txt
+user@host:~$ mkdir ~/newdir
+user@host:~$ mkdir ~/.hiddendir
+user@host:~$ ls ~
+user@host:~$ ls –a ~
+```
+
+Compare the results from the two previous commands. Note the hidden directories and
+files are listed using the **-a** option with the command **ls**.
+
+The next step creates and opens a file in the user’s home directory with nano.
+
+```
+user@host:~$ nano ~/new-file.txt
+```
+
+Enter the following sentence:
+
+**The quick brown fox jumped over the lazy dog.**
+
+To exit **nano**, press **CTRL-x**, select **Y** to save the file, then enter to confirm the filename. Note, the command **rm** removes files and directories. The command below deletes a specific file in your home directory. DO NOT ADD SPACES in the file path.
+
+```
+user@host:~$ ls ~
+user@host:~$ ls ~ >> ~/lab1-results.txt
+user@host:~$ cat ~/new-file.txt
+user@host:~$ cat ~/new-file.txt >> ~/lab1-results.txt
+user@host:~$ rm ~/new-file.txt
+user@host:~$ ls -a ~
+user@host:~$ ls -a ~ >> ~/lab1-results.txt
+```
+
+## Challenge 5: Copying and Moving Directories and Files
+There is no GUI, so there is no cut and paste when copying files. Instead, use the
+command **cp** and **mv**. Command **cp** is copy, **mv** is move. Either individual files or
+entire directories can be copied or moved. A set of files with common features,
+such as the same file extension or text string, can also be copied or moved using
+wildcards, and files can be renamed in the process.
+
+```
+user@host:~$ echo >> ~/lab1-results.txt
+user@host:~$ echo Copy/Move Files/Dir >> ~/lab1-results.txt
+user@host:~$ cp ~/lab1-results.txt ~/newdir
+user@host:~$ cp ~/lab1-results.txt ~/newdir/lab1-cp.txt
+user@host:~$ ls ~/newdir
+user@host:~$ ls ~/newdir >> ~/lab1-results.txt
+user@host:~$ mv ~/newdir/lab1-cp.txt ~/.hiddendir
+user@host:~$ ls ~/newdir
+user@host:~$ ls ~/.hiddendir
+user@host:~$ ls ~/.hiddendir >> ~/lab1-results.txt
+```
+
+The following steps demonstrate **rm**. First, you will attempt to remove a directory that
+contains files. Note the results. Then you will use the **–r** option to recursively remove
+the directory and its contents. Last, you will delete files using a wildcard. 
+
+```
+user@host:~$ rm ~/.hiddendir
+user@host:~$ rm –r ~/.hiddendir
+user@host:~$ rm ~/newdir/*.txt
+user@host:~$ ls ~/newdir
+user@host:~$ ls –a ~
+Directory newdir should exist, but be empty. Directory .hiddendir
+should be deleted.
+```
