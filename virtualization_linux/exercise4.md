@@ -121,11 +121,7 @@ user@host:~$ ls -a ~ >> ~/lab1-results.txt
 ```
 
 ## Challenge 5: Copying and Moving Directories and Files
-There is no GUI, so there is no cut and paste when copying files. Instead, use the
-command **cp** and **mv**. Command **cp** is copy, **mv** is move. Either individual files or
-entire directories can be copied or moved. A set of files with common features,
-such as the same file extension or text string, can also be copied or moved using
-wildcards, and files can be renamed in the process.
+There is no GUI, so there is no cut and paste when copying files. Instead, use the command **cp** and **mv**. Command **cp** is copy, **mv** is move. Either individual files or entire directories can be copied or moved. A set of files with common features, such as the same file extension or text string, can also be copied or moved using wildcards, and files can be renamed in the process.
 
 ```
 user@host:~$ echo >> ~/lab1-results.txt
@@ -140,9 +136,7 @@ user@host:~$ ls ~/.hiddendir
 user@host:~$ ls ~/.hiddendir >> ~/lab1-results.txt
 ```
 
-The following steps demonstrate **rm**. First, you will attempt to remove a directory that
-contains files. Note the results. Then you will use the **–r** option to recursively remove
-the directory and its contents. Last, you will delete files using a wildcard. 
+The following steps demonstrate **rm**. First, you will attempt to remove a directory that contains files. Note the results. Then you will use the **–r** option to recursively remove the directory and its contents. Last, you will delete files using a wildcard. 
 
 ```
 user@host:~$ rm ~/.hiddendir
@@ -153,3 +147,24 @@ user@host:~$ ls –a ~
 Directory newdir should exist, but be empty. Directory .hiddendir
 should be deleted.
 ```
+
+## Challenge 6: Transfer Files using scp
+You will need to transfer files to and from your JagCloud instance. If you had physical access to the host the instance was running on, you might be able to connect removable storage media to the host and transfer files to/from that removable media. However, you don’t have physical access, so you will need to use remote file transfer. SCP performs file transfer over ssh. Other options exist, such as netcat, ftp, or sftp, but since you will routinely access GCP instances with ssh, scp is a good options for routine file transfer.
+
+Start Windows Command Prompt by searching for cmd. Confirm scp is functioning, then transfer the file. The following commands demonstrate how to complete these steps. Note: the following commands are run through the Windows Command Prompt, not the GCP instance.
+
+```
+username@server-ip-address:source destination
+```
+
+1. **The -i option** directs use of private key for authentication private-key: The file path to the private key 
+- **username**: The username on the GCP instance
+- **server-ip-address**: IP address for GCP instance
+- **source**: The source file. Can be just the filename if the source file is in the user’s home directory, otherwise it must be the complete file path.
+
+C:\Users\jdoe>pscp –i C:\Users\jdoe\jdoe-private-key.ppk janedoe@50.60.70.80:lab1-results.txt lab1-results.txt
+
+The above command will copy file lab1-results.txt from the home directory of jane-doe on the Linux server at IP address 50.60.70.80 to the directory C:\Users\jdoe on the local Windows computer. Alternatively, you can save the file to another directory by specifying the full file path for the desired directory. 
+
+Confirm the file copied to your local computer with the command:
+C:\Users\jdoe>dir lab1-results.txt
