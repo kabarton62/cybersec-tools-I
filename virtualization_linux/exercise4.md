@@ -1,21 +1,13 @@
 # <img src="https://www.tamusa.edu/brandguide/jpeglogos/tamusa_final_logo_bw1.jpg" width="100" height="50"> Linux Introduction
 
 ## Challenge 1: Understanding the root user
-The root user has privileges to create, read, write, edit or delete any file or directory in a Linux system. Root also has privileges to execute all commands on
-a Linux system. Administrators of Linux systems must be able to elevate user privileges to root, as well as understand the security risks associated with root
-privileges. This lab will demonstrate two methods to access root privileges, using the commands sudo and sudo su. The command sudo is useful when just one or
-two commands need to be executed with root, while sudo su is useful when multiple commands are expected. The prompt “$” indicates user mode (not
-root), while the prompt “#” indicates root.
+The root user has privileges to create, read, write, edit or delete any file or directory in a Linux system. Root also has privileges to execute all commands on a Linux system. Administrators of Linux systems must be able to elevate user privileges to root, as well as understand the security risks associated with root privileges. This lab will demonstrate two methods to access root privileges, using the commands sudo and sudo su. The command sudo is useful when just one or two commands need to be executed with root, while sudo su is useful when multiple commands are expected. The prompt “$” indicates user mode (not root), while the prompt “#” indicates root.
 
 The /etc/shadow file stores encrypted passwords and additional password information for all user accounts. Root is required to read /etc/shadow. We will
-use this file to demonstrate root function. You will read content from the shadow file and store it to a new file. Additional information will be added to file
-throughout lab, and the file will be submitted in Blackboard. You will also maintain and submit lab notes. �
+use this file to demonstrate root function. You will read content from the shadow file and store it to a new file. Additional information will be added to file throughout lab, and the file will be submitted in Blackboard. You will also maintain and submit lab notes. 
 
 Complete the following commands and record the results in lab notes. The command **cat** is used to read the text from a file. The prompt **user@host:~$**
-reflects the user account executing the command, the hostname, and that the user is in user mode. We will also use the **ls** and **grep** commands and three types
-of pipes (| , > and >>). The pipe **|** feeds the output from one command into another. The grep command searches for a specified text string. The pipe > reads
-the output from the command to a file, while the pipe >> appends the output to a file without overwriting existing content in the file. **The file lab1-results.txt
-needs to be created in your home directory, so replace your-username in the file path below to your username. Do not copy “your-username”**.
+reflects the user account executing the command, the hostname, and that the user is in user mode. We will also use the **ls** and **grep** commands and three types of pipes (| , > and >>). The pipe **|** feeds the output from one command into another. The grep command searches for a specified text string. The pipe > reads the output from the command to a file, while the pipe >> appends the output to a file without overwriting existing content in the file. **The file lab1 results.txt needs to be created in your home directory, so replace your-username in the file path below to your username. Do not copy “your-username”**.
 
 ```
 user@host:~$ ls
