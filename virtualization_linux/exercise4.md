@@ -162,7 +162,7 @@ username@server-ip-address:source destination
 - **server-ip-address**: IP address for GCP instance
 - **source**: The source file. Can be just the filename if the source file is in the user’s home directory, otherwise it must be the complete file path.
 
-C:\Users\jdoe>pscp –i C:\Users\jdoe\jdoe-private-key.ppk janedoe@50.60.70.80:lab1-results.txt lab1-results.txt
+C:\Users\jdoe>scp –i C:\Users\jdoe\jdoe-private-key.ppk janedoe@50.60.70.80:lab1-results.txt lab1-results.txt
 
 The above command will copy file lab1-results.txt from the home directory of jane-doe on the Linux server at IP address 50.60.70.80 to the directory C:\Users\jdoe on the local Windows computer. Alternatively, you can save the file to another directory by specifying the full file path for the desired directory. 
 
