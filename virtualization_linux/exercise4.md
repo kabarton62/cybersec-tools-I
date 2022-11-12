@@ -1,4 +1,5 @@
 # <img src="https://www.tamusa.edu/brandguide/jpeglogos/tamusa_final_logo_bw1.jpg" width="100" height="50"> Linux Introduction
+
 ## Challenge 1: Understanding the root user
 The root user has privileges to create, read, write, edit or delete any file or directory in a Linux system. Root also has privileges to execute all commands on
 a Linux system. Administrators of Linux systems must be able to elevate user privileges to root, as well as understand the security risks associated with root
@@ -32,4 +33,57 @@ root@host:~# chown your-username:your-username /home/yourusername/lab1-results.t
 root@host:~# exit
 user@host:~$ ls
 user@host:~$ cat lab1-results.txt
+```
+
+## Challenge 2: Navigating Directories
+This section introduces the cd command and provides practice using cd with various shortcuts. The ~ represents the users home directory and can be used as a shortcut to move to the user’s home directory from anywhere in the directory tree. The shortcut .. is used to move up one directory. Both shortcuts can be combined with other strings to move through the directory tree. You will also use additional options of the ls (list) command and practice with the pwd (present working directory) command. The pwd command list the current directory. The tab button can be used to auto-complete directory and file names. Using the tab button not only speeds up navigation through the file structure, but also reduces the likeliness of typing or spelling errors. One thing … capitalization matters in Linux. Uppercase and lowercase always mean different things, do not interchange them. Things just will not work.
+
+```
+user@host:~$ echo >> lab1-results.txt
+user@host:~$ echo Navigating >> lab1-results.txt
+user@host:~$ pwd
+user@host:~$ cd ..
+user@host:~$ pwd
+user@host:~$ cd /home/ubuntu
+user@host:~$ sudo su
+root@host:~# pwd >> /home/your-username/lab1-results.txt
+root@host:~# exit
+user@host:~$ cd ~
+user@host:~$ pwd >> lab1-results.txt
+```
+
+## Challenge 3: Finding Files and Directories
+You may sometimes struggle to find a file or directory. If it’s a system file or directory, an Internet search can usually help. However, a Google search won’t likely help you find a directory created by a user or a data file. Fortunately, you can search the file system with find. This section will demonstrate how to find a file or directory using find. It will also introduce you to the help option and man pages. 
+
+Most commands have a either help or man pages, or both. When all else fails, use a command’s help option or man page for guidance on how to use that command. Help will usually be shown using the options -h and/or --help. Man pages can normally be accessed using **man** command. For example, **man pwd**. Exit a man page using the “**q**” key. The command **find** uses the **--help** option, not -h. The nmap command will be used to demonstrate the **-h** option. We will use the find command to search for the file lab1-results.txt. Report the results in your lab notes and offer an explanation why the different commands gave different results.
+
+```
+user@host:~$ cd /home/ubuntu
+user@host:~$ man find
+user@host:~$ q
+user@host:~$ find –-help
+user@host:~$ nmap –h
+user@host:~$ find –name lab1-results.txt
+user@host:~$ sudo find –name lab1-results.txt
+user@host:~$ sudo find /home –name lab1-results.txt
+user@host:~$ sudo find / -name lab1-results.txt
+user@host:~$ sudo find /etc –name lab1-results.txt
+```
+
+The command **locate** is also useful for finding files. Locate maintains a database of all files. That database updates periodically, but can also be updated manually using the **updatedb** command. These commands are demonstrated below. Next, attempt to find a file that we know exists. It may not be found. We then  update the database, and use **locate** again to search for the file. The command locate is convenient because it searches the entire file system, not just the directory and subdirectories of current working directory.
+
+```
+user@host:~$ locate lab1-results.txt
+user@host:~$ sudo updatedb
+user@host:~$ locate lab1-results.txt
+```
+
+## Challenge 4: Reading, Creating, Editing, and Deleting Directories and Files
+This section will introduce the commands **cat**, **nano** and **rm**. **cat** reads a file. Linux distributions ship with at least one text editor. Common text editors include **nano**, **vi**, **vim** and **gedit**. **gedit** is a GUI based editor, and is common in Linux desktop distributions. However, the GCP instance you are working with is a server, so does not support GUI based tools or applications. You will practice with **nano**. Note, you begin this section in a directory other than your home directory. Therefore, you must provide the full file path to write to files in your home directory. Include ~/ as a shortcut to the full file path of your home directory (the full file path would be /home/username/lab1-results.txt, the
+shortcut is ~/lab1-results.txt).
+
+Use a text editor, **nano**, to create and edit a new file. After reading the file with **cat**, delete the file using **rm**. Note, Linux does not recognize spaces in a filename without the use of quotation marks. For example, **nano new file.txt** would not create a single file named new file.txt, but instead create two files, **new** and **file.txt**. nano "new file.txt" would create a single file named **new file.txt**. 
+
+Directories are created with **mkdir**. Files and directories can be hidden by placing a period before the file or directory name. You will create visible and hidden directories in this section.
+
 ```
