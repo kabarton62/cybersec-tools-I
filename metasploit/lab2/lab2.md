@@ -88,3 +88,15 @@ Recall that we previously used **exploit/multi/http/tomcat_mgr_upload** to explo
 Exploit tomcat again, but recall that the RHOSTS must be the IP address discovered in the port scan.
 
 **Capture a screenshot of the exploit against tomcat.**
+
+### Challenge 5: Kill all Sessions
+Use the command sessions -K to kill all sessions.
+
+```
+msf6 exploit(multi/http/tomcat_mgr_upload) > sessions -K
+[*] Killing all sessions...
+[*] 192.168.100.15 - Meterpreter session 2 closed.  Reason: Died
+[*] 192.168.100.15 - Meterpreter session 2 closed.
+[*] 172.17.0.3 - Meterpreter session 1 closed.
+msf6 exploit(multi/http/tomcat_mgr_upload) > 
+```
