@@ -1,4 +1,5 @@
-# <img src="https://www.tamusa.edu/brandguide/jpeglogos/tamusa_final_logo_bw1.jpg" width="100" height="50"> Linux Introduction
+# <img src="https://www.tamusa.edu/brandguide/jpeglogos/tamusa_final_logo_bw1.jpg" width="100" height="50"> 
+# Linux Introduction
 
 ## Challenge 1: Understanding the root user
 The root user has privileges to create, read, write, edit or delete any file or directory in a Linux system. Root also has privileges to execute all commands on a Linux system. Administrators of Linux systems must be able to elevate user privileges to root, as well as understand the security risks associated with root privileges. This lab will demonstrate two methods to access root privileges, using the commands sudo and sudo su. The command sudo is useful when just one or two commands need to be executed with root, while sudo su is useful when multiple commands are expected. The prompt “$” indicates user mode (not root), while the prompt “#” indicates root.
