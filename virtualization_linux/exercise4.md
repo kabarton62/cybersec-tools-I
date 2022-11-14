@@ -32,8 +32,7 @@ user@host:~$ cat lab1-results.txt
 This section introduces the cd command and provides practice using cd with various shortcuts. The **~** represents the users home directory and can be used as a shortcut to move to the user’s home directory from anywhere in the directory tree. The shortcut .. is used to move up one directory. Both shortcuts can be combined with other strings to move through the directory tree. You will also use additional options of the ls (list) command and practice with the pwd (present working directory) command. The pwd command list the current directory. The tab button can be used to auto-complete directory and file names. Using the tab button not only speeds up navigation through the file structure, but also reduces the likeliness of typing or spelling errors. One thing … capitalization matters in Linux. Uppercase and lowercase always mean different things, do not interchange them. Things just will not work.
 
 ```
-user@host:~$ echo >> lab1-results.txt
-user@host:~$ echo Navigating >> lab1-results.txt
+user@host:~$ printf "Navigating\n\n" >> lab1.txt
 user@host:~$ pwd
 user@host:~$ cd ..
 user@host:~$ pwd
@@ -55,12 +54,12 @@ user@host:~$ cd /home/ubuntu
 user@host:~$ man find
 user@host:~$ q
 user@host:~$ find –-help
-user@host:~$ nmap –h
-user@host:~$ find –name lab1-results.txt
-user@host:~$ sudo find –name lab1-results.txt
-user@host:~$ sudo find /home –name lab1-results.txt
+user@host:~$ nmap -h
+user@host:~$ find -name lab1-results.txt
+user@host:~$ sudo find -name lab1-results.txt
+user@host:~$ sudo find /home -name lab1-results.txt
 user@host:~$ sudo find / -name lab1-results.txt
-user@host:~$ sudo find /etc –name lab1-results.txt
+user@host:~$ sudo find /etc -name lab1-results.txt
 ```
 
 The command **locate** is also useful for finding files. Locate maintains a database of all files. That database updates periodically, but can also be updated manually using the **updatedb** command. These commands are demonstrated below. Next, attempt to find a file that we know exists. It may not be found. We then  update the database, and use **locate** again to search for the file. The command locate is convenient because it searches the entire file system, not just the directory and subdirectories of current working directory.
@@ -80,12 +79,11 @@ Use a text editor, **nano**, to create and edit a new file. After reading the fi
 Directories are created with **mkdir**. Files and directories can be hidden by placing a period before the file or directory name. You will create visible and hidden directories in this section.
 
 ```
-user@host:~$ echo >> ~/lab1-results.txt
-user@host:~$ echo Create/Edit Files/Dir >> ~/lab1-results.txt
+user@host:~$ printf "Create/Edit Files/Dir\n\n" >> ~/lab1-results.txt
 user@host:~$ mkdir ~/newdir
 user@host:~$ mkdir ~/.hiddendir
 user@host:~$ ls ~
-user@host:~$ ls –a ~
+user@host:~$ ls -a ~
 ```
 
 Compare the results from the two previous commands. Note the hidden directories and
@@ -117,8 +115,7 @@ user@host:~$ ls -a ~ >> ~/lab1-results.txt
 There is no GUI, so there is no cut and paste when copying files. Instead, use the command **cp** and **mv**. Command **cp** is copy, **mv** is move. Either individual files or entire directories can be copied or moved. A set of files with common features, such as the same file extension or text string, can also be copied or moved using wildcards, and files can be renamed in the process.
 
 ```
-user@host:~$ echo >> ~/lab1-results.txt
-user@host:~$ echo Copy/Move Files/Dir >> ~/lab1-results.txt
+user@host:~$ printf "Copy/Move Files/Dir\n\n" >> ~/lab1-results.txt
 user@host:~$ cp ~/lab1-results.txt ~/newdir
 user@host:~$ cp ~/lab1-results.txt ~/newdir/lab1-cp.txt
 user@host:~$ ls ~/newdir
@@ -136,7 +133,7 @@ user@host:~$ rm ~/.hiddendir
 user@host:~$ rm –r ~/.hiddendir
 user@host:~$ rm ~/newdir/*.txt
 user@host:~$ ls ~/newdir
-user@host:~$ ls –a ~
+user@host:~$ ls -a ~
 Directory newdir should exist, but be empty. Directory .hiddendir
 should be deleted.
 ```
