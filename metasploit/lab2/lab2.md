@@ -1,5 +1,5 @@
 # <img src="https://www.tamusa.edu/brandguide/jpeglogos/tamusa_final_logo_bw1.jpg" width="100" height="50"> 
-# Metasploitable II
+# Metasploit II
 
 ## Challenge 1: Deploy the Lab
 The following script prepares a custom Metasploitable2. Copy the script and run it or run the commands individually.
