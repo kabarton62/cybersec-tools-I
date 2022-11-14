@@ -12,8 +12,11 @@ cd ~/metasploitable2
 wget https://raw.githubusercontent.com/kabarton62/cybersec-tools-I/main/metasploit/lab2/deploy.sh
 wget -P ~/metasploitable2/tomcat https://raw.githubusercontent.com/kabarton62/cybersec-tools-I/main/metasploit/lab2/tomcat/server.xml
 bash deploy.sh
-nmap 172.17.0.0/24
+sleep 10
+nmap 172.17.0.0/24 -p-
 ```
+Copy the above script. Create a file (i.e., build.sh) and paste the script. Run the script.
+
 **Capture a screenshot of the nmap results**
 
 ## Challenge 2:
