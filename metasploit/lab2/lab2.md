@@ -1,4 +1,5 @@
-# <img src="https://www.tamusa.edu/brandguide/jpeglogos/tamusa_final_logo_bw1.jpg" width="100" height="50"> 
+<img src="https://www.tamusa.edu/brandguide/jpeglogos/tamusa_final_logo_bw1.jpg" width="200" height="100"> 
+
 # Metasploit II
 This lab can be performed on an e2-small GCP instance. However, performance degrades significantly with two or more Meterpreter shells. Options to improve performance include:
 1. Stop your GCP instance and edit Machine type to e2-medium. Resize the instance to e2-small or stop the instance after the lab is complete.
