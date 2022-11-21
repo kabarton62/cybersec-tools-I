@@ -24,9 +24,13 @@ Copy the above script. Create a file (i.e., build.sh) and paste the script. Run 
 **Capture a screenshot of the nmap results**
 
 ## Challenge 2: distcc
-1. Create a Meterpreter reverse shell. Use a Kali Linux that can catch the Meterpreter shell as the RHOST.
-2. Prepare and start a Metasploit multi/handler on the RHOST.
-3. Use the Metasploit-Frame work distcc exploit to:
+1. Exploit Metasploitable2 via distcc.
+- Find the related exploit module
+- Configure RHOSTS
+- Set the payload for set **payload cmd/unix/reverse**
+2. Create a Meterpreter reverse shell. Use the IP address for a Kali Linux that can catch the Meterpreter shell as the LHOST.
+3. Prepare and start a Metasploit multi/handler on the LHOST.
+4. Use the Metasploit-Frame work distcc exploit to:
 - Transfer the Meterpreter reverse shell to Metasploitable2
 - Change file permissions on the Meterpreter reverse shell
 - Execute the Meterpreter reverse shell
