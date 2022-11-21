@@ -23,17 +23,19 @@ Copy the above script. Create a file (i.e., build.sh) and paste the script. Run 
 
 **Capture a screenshot of the nmap results**
 
-## Challenge 2: distcc
+## Challenge 2: Exploit distcc
 1. Exploit Metasploitable2 via distcc.
 - Find the related exploit module
 - Configure RHOSTS
 - Set the payload for set **payload cmd/unix/reverse**
 2. Create a Meterpreter reverse shell. Use the IP address for a Kali Linux that can catch the Meterpreter shell as the LHOST.
-3. Prepare and start a Metasploit multi/handler on the LHOST.
-4. Use the Metasploit-Frame work distcc exploit to:
+3. In a second terminal, prepare and start a Metasploit multi/handler on Kali.
+4. Use the Metasploit-Framework distcc exploit to:
 - Transfer the Meterpreter reverse shell to Metasploitable2
 - Change file permissions on the Meterpreter reverse shell
 - Execute the Meterpreter reverse shell
+5. Verify that a Meterpreter shell was caught on the multi/handler.
+6. Close the initial session (non-Meterpreter session) from the distcc exploit.
 
 **Capture screenshots that prove the Meterpreter reverse shell was transferred, had file permissions changed, and executed using the distcc exploit.**
 
@@ -110,7 +112,7 @@ msf6 exploit(multi/http/tomcat_mgr_upload) >
 ```
 
 ### Challenge 6: Sessions
-Metasploit can simultaneously manage multiple active _sessions_. The **sessions** command is used to list, interact with, and kill sessions. Sessions can be standard shells, Meterpreter shells, or other types of command line interfaces with targets. We covered the basics of the **sessions** command, but advanced options can be very useful during a penetration test or other operational use of Metasploit. Additional reading can be found at [Offensive Security](https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands/) and [Hacking Articles](https://www.hackingarticles.in/metasploit-for-pentester-sessions/).
+Metasploit can simultaneously manage multiple active _sessions_. The **jobs** command will list jobs running in the background but does not enable interaction with the associated session. The **sessions** command is used to list, interact with, and kill sessions. Sessions can be standard shells, Meterpreter shells, or other types of command line interfaces with targets. We covered the basics of the **sessions** command, but advanced options can be very useful during a penetration test or other operational use of Metasploit. Additional reading can be found at [Offensive Security](https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands/) and [Hacking Articles](https://www.hackingarticles.in/metasploit-for-pentester-sessions/).
 
 One feature that can be useful is the ability to upgrade a non-Meterpreter shell to a Meterpreter shell. The following example illustrates upgrading a Unix shell to a Meterpreter shell.
 
