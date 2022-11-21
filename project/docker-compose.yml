@@ -1,0 +1,28 @@
+version: '2'
+services:
+ target1:
+   image: sammol1120/vulnerable-tomcat
+   container_name: target1
+   hostname: target1
+   networks:
+      net:
+        ipv4_address: 172.16.20.201
+
+ target2:
+   image: vulhub/webmin:1.910
+   container_name: target2
+   hostname: target2
+   networks:
+      net:
+        ipv4_address: 172.16.20.223
+
+networks:
+  net:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.16.20.0/24
+        gateway: 172.16.20.1
